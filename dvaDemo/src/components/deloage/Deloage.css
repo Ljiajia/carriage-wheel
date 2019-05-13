@@ -1,0 +1,59 @@
+.deloage{
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    position: absolute;
+    top:0;
+    left:0;
+}
+.uploade{
+    width: 100%;
+    display: inline-block;
+    margin-top: 4rem;
+}
+.bottom{
+    position: fixed;
+    bottom:0;
+    left:0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+.bottom>a{
+    width: 99%;
+    height: 2.5rem;
+    background: #fff;
+    outline: none;
+    color: #5dacf6;
+    border-radius: 5px;
+    margin: .5rem 0;
+
+}
+
+ul.list{
+    width: 98%;
+    height: 5rem;
+    background: #fff;
+    outline: none;
+    color: #5dacf6;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.list>li{
+    width: 98%;
+    height: 2.5rem;
+    background: #fff;
+    outline: none;
+    color: #5dacf6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.list>li:first-child{
+    border-bottom:  1px solid #ccc;
+}

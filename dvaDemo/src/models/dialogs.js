@@ -1,10 +1,9 @@
 import {fetchUser} from "@/services/example"
 export default {
-
-  namespace: 'example',
-
-  state: {},
-
+  namespace: 'dialogs',
+  state: {
+      flag:false
+  },
   subscriptions: {
     setup({ dispatch, history }) {  // eslint-disable-line
     },
@@ -18,9 +17,12 @@ export default {
   },
 //同步改变，这里是唯一改变state的地方
   reducers: {
-    save(state, action) {
-      return { ...state, ...action.payload };
+    upload(state, action){
+        return { ...state, ...action.payload ,flag:true};
     },
+    cancel(state,action){
+      return { ...state, ...action.payload ,flag:false};
+    }
   },
 
 };

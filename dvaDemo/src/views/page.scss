@@ -1,0 +1,215 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}body{line-height:1;}ol,ul{list-style:none;}blockquote,q{quotes:none;}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}table{border-collapse:collapse;border-spacing:0;}
+a{color: #333;text-decoration: none}
+*{
+  margin:0;
+  padding:0;
+  list-style: none;
+  box-sizing: border-box;
+}
+html,body,.box,#root {
+  width: 100%;
+  height:100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #fff;
+}
+.box{
+  display: flex;
+  flex-direction: column;
+}
+.box>header{
+  width:100%;
+  height: 50px;
+  line-height: 50px;
+  display: flex;
+  justify-content:space-between;
+  padding: 0 20px;
+}
+header>span{
+  font-size: 18px;
+}
+section{
+  width: 100%;
+  flex: 1;
+  overflow: auto;
+  background: #eee;
+}
+.progress{
+  width: 100%;
+  >img{
+    width: 100%;
+    display: block;
+  }
+}
+section>img{
+  width: 100%;
+  display: block;
+}
+section>.uploadPictures{
+  width:100%;
+  padding:10px 0;
+  background: #fff;
+
+}
+section>.uploadPictures>.ullist{
+  display: flex;
+}
+section>.uploadPictures>.ullist>li{
+  flex: 1;
+}
+section>.uploadPictures>.ullist>li>p{
+  margin: 3px 10px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+}
+section>.uploadPictures>.ullist>li>p>img{
+  padding:8px 5px;
+  display: block;
+  margin: 0 auto;
+}
+section>.uploadPictures>.ullist>li>span{
+  margin: 3px 15px;
+  font-size: 14px;
+  display: inline-block;
+  text-align: center;
+  line-height: 20px;
+}
+footer{
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  >div:nth-child(1){
+    width: 65px;
+    height: 65px;
+    background: #fff;
+    position: fixed;
+    right: 15px;
+    bottom: 65px;
+    border-radius: 50%;
+    overflow: hidden;
+    >img{
+      width: 65px;
+      height: 65px;
+    }
+  }
+  >div:nth-child(2){
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding-left:15px;
+    justify-content: space-between;
+    >p{
+      height:60px;
+      line-height: 60px;
+      font-size: 16px;
+      >b{
+        color: #f00;
+        font-size: 18px;
+      }
+    }
+    >button{
+      border:0;
+      padding: 0 20px;
+      background: #ccc;
+      font-size: 16px;
+      color: #fff;
+    }
+  }
+}
+.line{
+  height: 15px;
+  background: #eee;
+}
+.contentbox{
+  width: 100%;
+  padding: 0 10px;
+  background: #fff;
+}
+.contentbox>.ollist{
+  width: 100%;
+}
+.contentbox>.ollist>li{
+  height: 55px;
+  line-height: 55px;
+  font-size: 16px;
+  display: flex;
+  justify-content:space-between;
+  >div{
+    display: flex;
+    height: 100%;
+    align-items: center;
+  }
+}
+.contentbox>.ollist>li:nth-child(2){
+  border-bottom: 1px solid #ccc;
+}
+.contentbox>.ollist>li:nth-child(1){
+  border-bottom: 1px solid #ccc;
+  margin-top:3px;
+}
+.money{
+  color: #f00;
+}
+.youhui{
+  width: 100%;
+  height: 55px;
+  line-height: 55px;
+  padding: 0 10px;
+  display: flex;
+  font-size: 16px;
+  justify-content: space-between;
+  background: #fff;
+    >div{
+      display: flex;
+      height: 100%;
+      align-items: center;
+      >img{
+        margin-left: 5px;
+      } 
+  }
+}
+// .lineOne{
+//   position: relative;
+// }
+// .lineOne:after{
+//   content: '';
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   border: 1px solid #ccc;
+//   width: 200%;
+//   -webkit-transform: scale(0.5);
+//   transform: scale(0.5);
+//   -webkit-transform-origin: 0;
+//   transform-origin: 0;
+// }
+// .lineTwo{
+//   position: relative;
+// }
+// .lineTwo:after{
+//   content: '';
+//   position: absolute;
+//   left: 0;
+//   top: 1px;
+//   border: 1px solid #ccc;
+//   width: 200%;
+//   -webkit-transform: scale(0.5);
+//   transform: scale(0.5);
+//   -webkit-transform-origin: 0;
+//   transform-origin: 0;
+// }
+.questy{
+  width: 100%;
+  height: 100px;
+  background: #eee;
+  >a{
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #03A9F4;
+    text-decoration-line: underline;
+    font-size: 16px;
+  }
+}
