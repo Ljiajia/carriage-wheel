@@ -6,15 +6,10 @@ import "antd-mobile/lib/button/style/index.css"
 import Deloage from "../components/deloage/Deloage";
 import City from "../components/City/city"
 import DrivingLicense from "../components/DrivingLicense/drivingLicense"
-
 class Page extends Component {
-    componentDidMount(){
-        this.props.fetchUser()
-    }
     constructor(props) {
         super(props);
         this.state = {
-            driving:'换驾照',
             imglist:[{
                 title:'身份证正面',
                 img:require('../assets/加号.png'),
@@ -74,11 +69,14 @@ class Page extends Component {
                     </li>
                     <li className={styles.lineOne}>
                     <span>当前驾照签发城市</span>
-                        <City context={'当前驾照签发城市'} title={'请选择签发地'}></City>
+                        <City></City>
                     </li>
                     <li className={styles.lineTwo}>
-                    <span>当前驾照补发城市</span>
-                        <City context={'当前驾照补发城市'}  title={'请选择补发地'}></City>
+                    <span>当前驾照补发城市</span> 
+                        <div onClick={()=>this.checkcity()}>
+                              <City lists={this.props.example.cityNew?this.props.example.cityNew:[]}></City>
+                        </div>
+                      
                     </li>
                     <li>
                         <span>服务费</span>
@@ -103,17 +101,32 @@ class Page extends Component {
         </div>
         );
     }
+    checkcity=()=>{
+        if(window.localStorage.getItem('province_id')!==null&&window.localStorage.getItem('city_id')!==null){
+            let obj={
+                order_type:window.localStorage.getItem('order_type')?window.localStorage.getItem('order_type'):1,
+                province_id:window.localStorage.getItem('province_id'),
+                city_id:window.localStorage.getItem('city_id')
+            }
+            this.props.putlist(obj)
+        }else{
+            alert('请先选择签发城市')
+        }
+    }
 }
 const mapStateToProps=state=>state
 const mapDispatchToprops=dispatch=>({
-    fetchUser:()=>{
-        dispatch({
-            type:'example/fetch'
-        })
-    },
     upload:(e)=>{
         dispatch({
             type:'dialogs/upload',
+        })
+    },
+    putlist:(params)=>{
+        dispatch({
+            type:'example/citylist',
+            payload:{
+                ...params
+            }
         })
     }
 })

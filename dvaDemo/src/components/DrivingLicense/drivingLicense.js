@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Picker, List } from 'antd-mobile';
 import "./drivingLicense.css"
-const colors = [
+const datas = [
     {
       label:
       (<div>
         <span/>
         <span>补驾照</span>
       </div>),
-      value: '#FF0000',
+      value: '1',
     },
     {
       label:
@@ -16,20 +16,20 @@ const colors = [
         <span/>
         <span>换驾照</span>
       </div>),
-      value: '#00FF00',
+      value: '2',
     }
   ];
 class DrivingLicense extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            colorValue: ['#00FF00'],
+            colorValue: ['2'],
         };
     }
     render() {
         return (
             <Picker
-            data={colors}
+            data={datas}
             value={this.state.colorValue}
             cols={1}
             onChange={this.onChangeColor}
@@ -39,6 +39,7 @@ class DrivingLicense extends Component {
         );
     }
     onChangeColor = (color) => {
+      window.localStorage.setItem('order_type',color.join('[]'))
         this.setState({
           colorValue: color,
         });

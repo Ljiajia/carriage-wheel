@@ -1,4 +1,4 @@
-import {fetchUser} from "@/services/example"
+// import {fetchUser} from "@/services/example"
 export default {
   namespace: 'dialogs',
   state: {
@@ -9,12 +9,12 @@ export default {
     },
   },
 //异步改变
-  effects: {
-    *fetch({ payload }, { call, put }) {  // eslint-disable-line
-      let data=yield call(fetchUser)
-      yield put({ type: 'save',payload:{data:data.data} });
-    },
-  },
+  // effects: {
+  //   *fetch({ payload }, { call, put }) {  // eslint-disable-line
+  //     let data=yield call(fetchUser)
+  //     yield put({ type: 'save',payload:{data:data.data} });
+  //   },
+  // },
 //同步改变，这里是唯一改变state的地方
   reducers: {
     upload(state, action){

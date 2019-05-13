@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Picker } from 'antd-mobile';
-import { district } from 'antd-mobile-demo-data';
+import { connect } from 'dva';
 const CustomChildren = props => (
     <div
       onClick={props.onClick}
@@ -17,21 +17,38 @@ class City extends Component {
     super(props);
     this.state = {  };
   }
+  componentDidMount(){
+    this.props.fetchCity()
+}
   render() {
     return (
       <Picker
       title="选择地区"
       extra={this.props.title}
-      data={district}
+      data={this.props.lists||this.props.example[0]}
       value={this.state.pickerValue}
       cols={2}
-      onChange={v => this.setState({ pickerValue: v })}
+      onChange={(e)=>this.changes(e)}
       onOk={v => this.setState({ pickerValue: v })}
       >
-        <CustomChildren></CustomChildren>
+        <CustomChildren>
+        </CustomChildren>
     </Picker>
     );
   }
+  changes=(e)=>{
+    window.localStorage.setItem('province_id',e[0])
+    window.localStorage.setItem('city_id',e[1])
+    this.setState({ pickerValue: e })
+  }
 }
-
-export default City;
+const mapStateToProps=state=>state
+const mapDispatchToprops=dispatch=>({
+  fetchCity:()=>{
+    dispatch({
+        type:'example/citys'
+    })
+  },
+ 
+})
+export default connect(mapStateToProps,mapDispatchToprops)(City);
