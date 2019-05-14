@@ -12,25 +12,26 @@ class Page extends Component {
         this.state = {
             imglist:[{
                 title:'身份证正面',
-                img:require('../assets/加号.png'),
+                img:require('../assets/id-a.png'),
                 id:0
             },{
                 title:'身份证反面',
-                img:require('../assets/加号.png'),
+                img:require('../assets/id-b.png'),
                 id:1
             },{
                 title:'驾驶证正页',
-                img:require('../assets/加号.png'),
+                img:require('../assets/licence-a.png'),
                 id:2
             },{
                 title:'驾驶证副页',
-                img:require('../assets/加号.png'),
+                img:require('../assets/licence-b.png'),
                 id:3
             },{
                 title:'白底半身照',
-                img:require('../assets/加号.png'),
+                img:require('../assets/photo.png'),
                 id:4
-            }]
+            }],
+            showcity:false
         };
     }
     render() {
@@ -51,9 +52,9 @@ class Page extends Component {
               <div className={styles.uploadPictures}>
                   <ul className={styles.ullist}>
                     {this.state.imglist.map(item=>
-                        <li key={item.id} onClick={(e)=>this.props.upload(e)}>
+                        <li key={item.id} onClick={(e)=>this.props.upload(e,item.img)}>
                             <p>
-                            <img src={item.img} alt=""/>
+                            <img src={require('../assets/加号.png')} alt=""/>
                             </p>
                             <span>{item.title}</span>
                         </li>
@@ -74,7 +75,10 @@ class Page extends Component {
                     <li className={styles.lineTwo}>
                     <span>当前驾照补发城市</span> 
                         <div onClick={()=>this.checkcity()}>
-                              <City lists={this.props.example.cityNew?this.props.example.cityNew:[]}></City>
+                        {this.state.showcity?<City lists={this.props.example.cityNew?this.props.example.cityNew:[]}></City>:
+                    <span>请选择</span>
+                    }
+                              
                         </div>
                       
                     </li>
@@ -95,14 +99,19 @@ class Page extends Component {
                 <div className={styles.questy}>
                         <a href="/">常见问题</a>
                 </div>
-                    {this.props.dialogs.flag?<Deloage></Deloage>:''}
+                {this.props.dialogs.flag?<Deloage></Deloage>:''}
+
                 </section>
             <Footer></Footer>
         </div>
         );
     }
     checkcity=()=>{
+        console.log(window.localStorage.getItem('province_id')!==null,window.localStorage.getItem('city_id')!==null)
         if(window.localStorage.getItem('province_id')!==null&&window.localStorage.getItem('city_id')!==null){
+            this.setState({
+                showcity:true
+            })
             let obj={
                 order_type:window.localStorage.getItem('order_type')?window.localStorage.getItem('order_type'):1,
                 province_id:window.localStorage.getItem('province_id'),
@@ -110,15 +119,19 @@ class Page extends Component {
             }
             this.props.putlist(obj)
         }else{
+            this.setState({
+                showcity:false
+            })
             alert('请先选择签发城市')
         }
     }
 }
 const mapStateToProps=state=>state
 const mapDispatchToprops=dispatch=>({
-    upload:(e)=>{
+    upload:(e,img)=>{
         dispatch({
             type:'dialogs/upload',
+            img
         })
     },
     putlist:(params)=>{

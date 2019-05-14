@@ -18,7 +18,7 @@ export default {
 //同步改变，这里是唯一改变state的地方
   reducers: {
     upload(state, action){
-        return { ...state, ...action.payload ,flag:true};
+        return { ...state, ...action.payload ,flag:true,img:action.img};
     },
     cancel(state,action){
       return { ...state, ...action.payload ,flag:false};

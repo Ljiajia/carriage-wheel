@@ -5,6 +5,15 @@
     position: absolute;
     top:0;
     left:0;
+    z-index: 200;
+}
+.deloage>div:nth-child(1){
+    width: 100%;
+    padding: 100px 20px;
+}
+.deloage>div:nth-child(1)>img{
+    width: 100%;
+    box-sizing: border-box;
 }
 .uploade{
     width: 100%;
@@ -20,21 +29,19 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
+    padding: 0 10px;
+    border-radius: 5px;
 }
 .bottom>a{
-    width: 99%;
-    height: 2.5rem;
+    width: 100%;
     background: #fff;
     outline: none;
     color: #5dacf6;
-    border-radius: 5px;
-    margin: .5rem 0;
-
+    margin:8px 0;
 }
 
 ul.list{
-    width: 98%;
+    width: 100%;
     height: 5rem;
     background: #fff;
     outline: none;
@@ -43,9 +50,10 @@ ul.list{
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
 }
 .list>li{
-    width: 98%;
+    width: 100%;
     height: 2.5rem;
     background: #fff;
     outline: none;
