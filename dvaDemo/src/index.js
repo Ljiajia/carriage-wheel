@@ -10,7 +10,7 @@ const app = dva();
 
 // 3. Model
 app.model(require('./models/example').default);
-app.model(require('./models/dialogs').default);
+// app.model(require('./models/dialogs').default);
 
 
 // 4. Router

@@ -41,34 +41,64 @@ section{
     display: block;
   }
 }
-section>img{
+section>div>img{
   width: 100%;
   display: block;
 }
-section>.uploadPictures{
+section>div>.uploadPictures{
   width:100%;
   padding:10px 0;
   background: #fff;
-
 }
-section>.uploadPictures>.ullist{
+section>div>.uploadPictures22{
+  width:100%;
+  padding:10px 0;
+  background: #fff;
+}
+section>div>.uploadPictures>.ullist{
   display: flex;
 }
-section>.uploadPictures>.ullist>li{
+section>div>.uploadPictures22>.ullist{
+  display: flex;
+  justify-content: space-around;
+}
+section>div>.uploadPictures>.ullist>li{
   flex: 1;
 }
-section>.uploadPictures>.ullist>li>p{
+section>div>.uploadPictures22>.ullist>li{
+  width: 20%;
+}
+section>div>.uploadPictures>.ullist>li>p{
   margin: 3px 10px;
   border: 1px solid #ccc;
   border-radius: 12px;
 }
-section>.uploadPictures>.ullist>li>p>img{
+section>div>.uploadPictures22>.ullist>li>p{
+  margin: 3px 12px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+}
+section>div>.uploadPictures>.ullist>li>p>img{
+  padding:8px 5px;
+  display: block;
+  margin: 0 auto;
+  width: 42px;
+  height: 48px;
+}
+section>div>.uploadPictures22>.ullist>li>p>img{
   padding:8px 5px;
   display: block;
   margin: 0 auto;
 }
-section>.uploadPictures>.ullist>li>span{
+section>div>.uploadPictures>.ullist>li>span{
   margin: 3px 15px;
+  font-size: 14px;
+  display: inline-block;
+  text-align: center;
+  line-height: 20px;
+}
+section>div>.uploadPictures22>.ullist>li>span{
+  margin: 3px 14px;
   font-size: 14px;
   display: inline-block;
   text-align: center;

@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dva Demo</title>
-  <link rel="stylesheet" href="index.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
-  <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
-  <script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dva Demo</title>
+    <link rel="stylesheet" href="index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+    <!-- <script>
     if ('addEventListener' in document) {
       document.addEventListener('DOMContentLoaded', function() {
         FastClick.attach(document.body);
@@ -16,12 +17,45 @@
     if(!window.Promise) {
       document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
     }
-  </script>
+  </script> -->
+    <script>
+        (function(a, h, c, b, f, g) {
+            a["UdeskApiObject"] = f;
+            a[f] = a[f] || function() {
+                (a[f].d = a[f].d || []).push(arguments)
+            };
+            g = h.createElement(c);
+            g.async = 1;
+            g.src = b;
+            c = h.getElementsByTagName(c)[0];
+            c.parentNode.insertBefore(g, c)
+        })(window, document, "script", "//weizhang.udesk.cn/im_client/js/udeskApi.js?_t=1475044663008", "ud");
+        window.ud({
+            "code": "gigdb0a",
+            "link": "//weizhang.udesk.cn/im_client",
+            targetSelector: "people",
+            "isInvite": true,
+            "mode": "inner",
+            "color": "#307AE8",
+            "pos_flag": "vrb",
+            "language": "en-us", //语言-英文
+            "onlineText": "联系客服，在线咨询",
+            "offlineText": "客服下班，请留言",
+            "mobile": { //为响应式布局，提供pc、mobile自定制
+            "mode": "blank",
+            // "color": "#307AE8",
+            "pos_flag": "crb",
+            "onlineText": "联系客服，在线咨询",
+            "offlineText": "客服下班，请留言"
+            }
+        });
+    </script>
 </head>
+
 <body>
 
-  <div id="root"></div>
-  <script src="index.js"></script>
-
+    <div id="root"></div>
+    <script src="index.js"></script>
 </body>
+
 </html>
